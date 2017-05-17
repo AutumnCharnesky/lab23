@@ -1,0 +1,83 @@
+1)
+select * from customers;
+
+2)
+select country from customers;
+
+3)
+select * from customers 
+where customerid like 'BL%'
+
+4)
+select * from orders limit 100;
+
+
+5)
+select contactname 
+from customers
+where postalcode='1010' 
+or postalcode='3012' 
+or postalcode='312209' 
+or postalcode='05023';
+
+6)
+select * from orders 
+where not shipregion is not null;
+
+7)
+select * from orders 
+order by shipcountry, shipcity;
+
+8)
+insert into customers(customerid, companyname,  
+contactname, contacttitle, address, city, region,
+postalcode, country,  phone, fax)
+values (11111111111, 'gc', 'autumn', 'she does stuff',
+'home222', 'home', null,  12345, 'usa', 000000000, 
+999999999);
+
+9)
+update orders 
+set shipregion='EuroZone'
+where shipcountry='France'
+
+10)
+delete from order_details
+where quantity=1;
+
+11)
+select avg(quantity) as "Average", max(quantity) as "Max", min(quantity) as "Min" from order_details;
+
+12)
+select avg(quantity) as "Average", 
+max(quantity) as "Max", 
+min(quantity) as "Min" from order_details
+group by orderid;
+
+13)
+select customerid 
+from orders
+where orderid=10290;
+
+14)
+select * from customers
+inner join orders on customers.customerid = 
+orders.customerid
+
+select * from customers
+left join orders on customers.customerid = 
+orders.customerid
+
+select * from customers
+right join orders on customers.customerid = 
+orders.customerid
+
+15)
+select firstname
+from employees
+where reportsto is null;
+
+16)
+select firstname
+from employees
+where reportsto <> 0;
